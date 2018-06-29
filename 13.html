@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #list {
+          background:linear-gradient(to bottom, #FFFFFF, #E6E6E6) #F5F5F5 repeat-x;
+             border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+             border-radius: 4px;
+             border-style: solid;
+             border-width: 1px;
+             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+             color: #333333;
+                 text-decoration:none;
+             display:block;
+             font-size: 14px;
+                 width:240px;
+             line-height: 20px;
+             margin: 10px auto;
+             padding: 4px 6px;
+             text-align: center;
+             text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+             vertical-align: baseline;
+           position: relative;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-transition-property: -webkit-transform;
+           transition-property: transform;
+           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+           -webkit-transform: translateZ(0);
+           -ms-transform: translateZ(0);
+           transform: translateZ(0);
+           box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+           position:absolute; left:50px; top:50px; border-radius: 10px; background-color: #ffffff; z-index: 99;}
+        #cryteries {
+          background:linear-gradient(to bottom, #FFFFFF, #E6E6E6) #F5F5F5 repeat-x;
+             border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+             border-radius: 4px;
+             border-style: solid;
+             border-width: 1px;
+             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+             color: #333333;
+                 text-decoration:none;
+             display:block;
+             font-size: 14px;
+                 width:220px;
+             line-height: 20px;
+             margin: 10px auto;
+             padding: 4px 6px;
+             text-align: center;
+             text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+             vertical-align: baseline;
+           position: relative;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-transition-property: -webkit-transform;
+           transition-property: transform;
+           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+           -webkit-transform: translateZ(0);
+           -ms-transform: translateZ(0);
+           transform: translateZ(0);
+           box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+           position:absolute; left:50px; top: 200px; border-radius: 10px; background-color: #ffffff; z-index: 99;padding:15px;}
+        #mySelect{position: relative;  top:100; left: -20px; margin:5px; }
+        #mySelect2{position: relative;   top:200; left: -20px; margin:5px;}
+        #mySelect3{position: relative;  top:300; left: -20px; margin:5px;}
+        #projectDescription{
+          background:linear-gradient(to bottom, #FFFFFF, #E6E6E6) #F5F5F5 repeat-x;
+             border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+             border-radius: 4px;
+             border-style: solid;
+             border-width: 1px;
+             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+             color: #333333;
+                 text-decoration:none;
+             display:block;
+             font-size: 14px;
+                 width:220px;
+             line-height: 20px;
+             margin: 10px auto;
+             padding: 4px 6px;
+             text-align: center;
+             text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+             vertical-align: baseline;
+           position: relative;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-transition-property: -webkit-transform;
+           transition-property: transform;
+           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+           -webkit-transform: translateZ(0);
+           -ms-transform: translateZ(0);
+           transform: translateZ(0);
+           box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          position:absolute;; top: 150px;  right: 40px; z-index: 99px; padding:5px; display: none; background-color: #ffffff; border-radius: 10px;}
+        #buttonDescription{
+          background:linear-gradient(to bottom, #FFFFFF, #E6E6E6) #F5F5F5 repeat-x;
+             border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+             border-radius: 4px;
+             border-style: solid;
+             border-width: 1px;
+             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+             color: #333333;
+                 text-decoration:none;
+             display:block;
+             font-size: 14px;
+                 width:120px;
+             line-height: 20px;
+             margin: 20px auto;
+             padding: 4px 12px;
+             text-align: center;
+             text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+             vertical-align: middle;
+           position: relative;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-transition-property: -webkit-transform;
+           transition-property: transform;
+           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+           -webkit-transform: translateZ(0);
+           -ms-transform: translateZ(0);
+           transform: translateZ(0);
+           box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          position:absolute;; top: 50px;  right: 40px; z-index: 99px; }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<div id='map'></div>
+<div id='list'>
+ <ul style="list-style-type: none">
+  <li>
+  <select id="mySelect" onchange="filterLayer(this.value)">
+    <option  selected disabled>Choose type of places</option>
+    <option value="all">all
+    <option value="walking">walking
+    <option value="living">living
+  </select></li>
+
+    <li>
+  <select id="mySelect2" onchange="filterLayer2(this.value)">
+    <option  selected disabled>Choose age</option>
+    <option value="all">all
+    <option value="<17"> less 17
+    <option value="18-26">18-26
+    <option value="27-39">27-39
+    <option value="40-59">40-59
+    <option value=">60+">more 60
+  </select></li>
+
+    <li>
+  <select id="mySelect3" onchange="filterLayer3(this.value)">
+    <option selected disabled>Choose family composition</option>
+    <option value="all">All
+    <option value="parents">With parents
+    <option value="dormitory">In dormitory
+    <option value="alone">Alone
+    <option value="friends">With friends
+    <option value="partner">With partner
+    <option value="children">Family with children
+  </select></li>
+</ul>
+</div>
+
+<div id='cryteries'>
+
+  </div>
+
+<script>
+
+var filter = ["all", ["!=", "place", ""],["!=", "years", ""],["!=", "roommates", ""]];
+console.log(filter);
+
+function filterLayer(value) {
+
+  if(value === "all") {
+      filter[1][0] = '!=';
+      filter[1][2] = '';
+  } else {
+      filter[1][0] = '==';
+      filter[1][2] = value;
+  }
+  console.log(filter);
+  map.setFilter("places", filter);
+ }
+
+ function filterLayer2(value) {
+   if(value === "all") {
+       filter[2][0] = '!=';
+       filter[2][2] = '';
+   } else {
+       filter[2][0] = '==';
+       filter[2][2] = value;
+   }
+   console.log(filter);
+   map.setFilter("places", filter);
+
+
+       switch(value) {
+  case '<17':
+    text="Озелененность района<br> Благоустройство"
+   break
+  case '18-26':
+    text="Озелененность района<br> Благоустройство<br>Наличие ресторанов,кафе"
+    break
+  case '27-39':
+    text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+    break
+  case '40-59':
+    text="Озелененность района<br> Благоустройство<br>Развитая сеть сферы обсуживания"
+    break
+ case '<60':
+    text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+    break
+   default:
+    text="Choose group in order to see criteria"
+    break
+}
+        document.getElementById("cryteries").innerHTML = "<b>Main criteria for choosing group:</b><br>" + text;
+   }
+
+   function filterLayer3(value) {
+     if(value === "all") {
+         filter[3][0] = '!=';
+         filter[3][2] = '';
+     } else {
+         filter[3][0] = '==';
+         filter[3][2] = value;
+     }
+     map.setFilter("places", filter);
+
+    switch(value) {
+   case 'parents':
+   text="Благоустройство<br>Озелененность района <br>Развитая сеть муниципальных организаций"
+   break
+   case 'dormitory':
+   text="Озелененность района<br> Благоустройство<br> Развитая сеть общественного транспорта"
+   break
+   case 'friends':
+   text="Развитая сеть сферы обслуживания<br> Благоустройство<br>Наличие ресторанов,кафе"
+   break
+   case 'alone':
+   text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+   break
+   case 'partner':
+   text="Развитая сеть общественного транспорта<br> Благоустройство<br>Развитая сеть сферы обсуживания"
+   break
+   case 'children':
+   text="Места для отдыха с детьми, площадки для занятия спортом<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+   break
+   default:
+   text="Choose group in order to see criteria"
+   break
+   }
+     document.getElementById("cryteries").innerHTML ="<b>Main criteria for choosing group:</b><br>" +  text;
+   }
+var description = "Описание проекта"
+
+
+</script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibGVydWFtZXJsZW4iLCJhIjoiY2pmejhxY2EzMG5pNDMzcGF2NGNtZDAxaiJ9.M6--6ZT8HprR8m82KwbxlQ';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/leruamerlen/cji7m28hw5fz92rprrnqvmhb7', // stylesheet location
+    center: [37.616,55.753], // starting position [lng, lat]
+    zoom: 12 // starting zoom
+});
+function myFunction1(value){
+  console.log(value);
+}
+
+</script>
+
+<div id="buttonDescription">
+<button onclick="showDescription()">Description of project</button>
+</div>
+
+<div id="projectDescription">
+Description of the project
+</div>
+
+
+<script>
+function showDescription() {
+    var x = document.getElementById("projectDescription");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>
+
+<!-- <div id='button'>
+<script>
+var description= "Описание"
+</script>
+<input type="button" onclick=document.getElementById().innerHTML = description; value="Description of project"/>
+</div> -->
+
+</body>
+</html>
