@@ -217,19 +217,19 @@ function filterLayer(value) {
     text="Озелененность района<br> Благоустройство"
    break
   case '18-26':
-    text="Озелененность района<br> Благоустройство<br>Наличие ресторанов,кафе"
+    text="For living :<br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br>For walking :<br>Accomplishment<br>Landscaping of the area<br>The developed network of public transport "
     break
   case '27-39':
-    text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+    text="For living :<br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Accomplishment <br> For walking :<br>Accomplishment<br>Landscaping of the area <br>Availability of restaurants, cafes"
     break
   case '40-59':
-    text="Озелененность района<br> Благоустройство<br>Развитая сеть сферы обсуживания"
+    text="For living :<br>Landscaping of the area <br>Developed network of municipal organizations<br>The developed network of public transport<br>For walking :<br>Lack of production facilities, railways, major highways<br>Accomplishment <br>Landscaping of the area<br>Availability of restaurants, cafes"
     break
  case '<60':
-    text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+    text="For living :<br>Developed network of municipal organizations<br>Availability of parking spaces<br>Availability of reservoirs<br>For walking :<br>>Developed network of municipal organizations<br>The developed network of public transport<br>Availability of parking spaces"
     break
    default:
-    text="Choose group in order to see criteria"
+    text="For living :<br>Accomplishment<br>Landscaping of the area  <br>For walking :<br>Landscaping of the area <br>Accomplishment"
     break
 }
         document.getElementById("cryteries").innerHTML = "<b>Main criteria for choosing group:</b><br>" + text;
@@ -247,22 +247,22 @@ function filterLayer(value) {
 
     switch(value) {
    case 'parents':
-   text="Благоустройство<br>Озелененность района <br>Развитая сеть муниципальных организаций"
+   text="For living :<br>Accomplishment <br>Landscaping of the area <br>Developed service network<br>For walking :<br>Landscaping of the area <br>Accomplishment <br>Developed service network<br>"
    break
    case 'dormitory':
-   text="Озелененность района<br> Благоустройство<br> Развитая сеть общественного транспорта"
+   text="For living :<br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br>For walking :<br>Landscaping of the area <br>Accomplishment <br>The developed network of public transport<br>Lack of production facilities, railways, major highways<br>Developed service network"
    break
    case 'friends':
-   text="Развитая сеть сферы обслуживания<br> Благоустройство<br>Наличие ресторанов,кафе"
+   text="For living :<br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br>For walking :<br>Landscaping of the area <br>Accomplishment <br>"
    break
    case 'alone':
-   text="Озелененность района<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+   text="For living :<br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Developed service network<br>For walking :<br>Accomplishment <br>Landscaping of the area <br>Lack of production facilities, railways, major highwaysThe developed network of public transport"
    break
    case 'partner':
-   text="Развитая сеть общественного транспорта<br> Благоустройство<br>Развитая сеть сферы обсуживания"
+   text="For living :<br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br>For walking :<br>Accomplishment <br>Landscaping of the area <br>"
    break
    case 'children':
-   text="Места для отдыха с детьми, площадки для занятия спортом<br> Благоустройство<br>Развитая сеть муниципальных организаций"
+   text="For living :<br>Choose group in order to see criteria<br>Landscaping of the area <br>Developed service network<br>For walking :<br>Lack of production facilities, railways, major highways<br>Landscaping of the area <br>Accomplishment "
    break
    default:
    text="Choose group in order to see criteria"
@@ -279,7 +279,7 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/leruamerlen/cji7m28hw5fz92rprrnqvmhb7', // stylesheet location
     center: [37.616,55.753], // starting position [lng, lat]
-    zoom: 12 // starting zoom
+    zoom: 10 // starting zoom
 });
 function myFunction1(value){
   console.log(value);
