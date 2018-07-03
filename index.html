@@ -217,19 +217,19 @@ function filterLayer(value) {
     text="Озелененность района<br> Благоустройство"
    break
   case '18-26':
-    text="For living :<br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br>For walking :<br>Accomplishment<br>Landscaping of the area<br>The developed network of public transport "
+    text="<b>For living :</b><br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br><b>For walking :</b><br>Accomplishment<br>Landscaping of the area<br>The developed network of public transport "
     break
   case '27-39':
-    text="For living :<br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Accomplishment <br> For walking :<br>Accomplishment<br>Landscaping of the area <br>Availability of restaurants, cafes"
+    text="<b>For living :</b><br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Accomplishment <br> <b>For walking :</b><br>Accomplishment<br>Landscaping of the area <br>Availability of restaurants, cafes"
     break
   case '40-59':
-    text="For living :<br>Landscaping of the area <br>Developed network of municipal organizations<br>The developed network of public transport<br>For walking :<br>Lack of production facilities, railways, major highways<br>Accomplishment <br>Landscaping of the area<br>Availability of restaurants, cafes"
+    text="<b>For living :</b><br>Landscaping of the area <br>Developed network of municipal organizations<br>The developed network of public transport<br><b>For walking :</b><br>Lack of production facilities, railways, major highways<br>Accomplishment <br>Landscaping of the area<br>Availability of restaurants, cafes"
     break
  case '<60':
-    text="For living :<br>Developed network of municipal organizations<br>Availability of parking spaces<br>Availability of reservoirs<br>For walking :<br>>Developed network of municipal organizations<br>The developed network of public transport<br>Availability of parking spaces"
+    text="<b>For living :</b><br>Developed network of municipal organizations<br>Availability of parking spaces<br>Availability of reservoirs<br><b>For walking :</b><br>Developed network of municipal organizations<br>The developed network of public transport<br>Availability of parking spaces"
     break
    default:
-    text="For living :<br>Accomplishment<br>Landscaping of the area  <br>For walking :<br>Landscaping of the area <br>Accomplishment"
+    text="<b>For living :</b><br>Accomplishment<br>Landscaping of the area  <br><b>For walking :<br>Landscaping of the area <br>Accomplishment"
     break
 }
         document.getElementById("cryteries").innerHTML = "<b>Main criteria for choosing group:</b><br>" + text;
@@ -247,22 +247,22 @@ function filterLayer(value) {
 
     switch(value) {
    case 'parents':
-   text="For living :<br>Accomplishment <br>Landscaping of the area <br>Developed service network<br>For walking :<br>Landscaping of the area <br>Accomplishment <br>Developed service network<br>"
+   text="<b>For living :</b><br>Accomplishment <br>Landscaping of the area <br>Developed service network<br><b>For walking :</b><br>Landscaping of the area <br>Accomplishment <br>Developed service network<br>"
    break
    case 'dormitory':
-   text="For living :<br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br>For walking :<br>Landscaping of the area <br>Accomplishment <br>The developed network of public transport<br>Lack of production facilities, railways, major highways<br>Developed service network"
+   text="<b>For living :</b><br>The developed network of public transport <br>Accomplishment <br>Landscaping of the area <br><b>For walking :</b><br>Landscaping of the area <br>Accomplishment <br>The developed network of public transport<br>Lack of production facilities, railways, major highways<br>Developed service network"
    break
    case 'friends':
-   text="For living :<br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br>For walking :<br>Landscaping of the area <br>Accomplishment <br>"
+   text="<b>For living :м<br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br><b>For walking :</b><br>Landscaping of the area <br>Accomplishment <br>"
    break
    case 'alone':
-   text="For living :<br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Developed service network<br>For walking :<br>Accomplishment <br>Landscaping of the area <br>Lack of production facilities, railways, major highwaysThe developed network of public transport"
+   text="<b>For living :</b><br>The developed network of public transport <br>Lack of production facilities, railways, major highways<br>Developed service network<br><b>For walking :</b><br>Accomplishment <br>Landscaping of the area <br>Lack of production facilities, railways, major highwaysThe developed network of public transport"
    break
    case 'partner':
-   text="For living :<br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br>For walking :<br>Accomplishment <br>Landscaping of the area <br>"
+   text="<b>For living :</b><br>The developed network of public transport <br>Landscaping of the area <br>Accomplishment <br><b>For walking :</b><br>Accomplishment <br>Landscaping of the area <br>"
    break
    case 'children':
-   text="For living :<br>Choose group in order to see criteria<br>Landscaping of the area <br>Developed service network<br>For walking :<br>Lack of production facilities, railways, major highways<br>Landscaping of the area <br>Accomplishment "
+   text="<b>For living :</b><br>Choose group in order to see criteria<br>Landscaping of the area <br>Developed service network<br><b>For walking :</b><br>Lack of production facilities, railways, major highways<br>Landscaping of the area <br>Accomplishment "
    break
    default:
    text="Choose group in order to see criteria"
